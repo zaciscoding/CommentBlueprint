@@ -1,0 +1,31 @@
+/* global css */ 
+
+body{ 
+background-color:lightgray;
+margin:0;
+padding:0;
+min-height:100%;
+min-width:100%;
+}
+
+
+
+form{  
+margin:auto;
+padding-top: 20px ;
+padding-left:10px;
+}
+
+label{ 
+padding-top:8px; }
+
+
+
+button{
+  padding-bottom:15px;
+}
+
+
+
+.form-control{ 
+width:30%; }

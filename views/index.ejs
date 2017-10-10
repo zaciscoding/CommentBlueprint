@@ -1,0 +1,78 @@
+<!DOCTYPE html> 
+<html lang='en-US'> 
+<head>
+  <meta name="motivationforum"> 
+  <title> here</title> 
+   <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="../css/global.css">
+</head> 
+<body class="container-fluid">
+<div class="nav nav-toggleable">
+ <nav class="nav-navbar"> 
+ </nav>
+</div>  
+ <section> 
+   <h1 class="display-2 ml-2"> Post </h1> 
+   <form action"/index" method="post" class="form-group"> 
+      <div class="form-group"> 
+        <label for="name" class=" sr-only form-control-label"> Name:   </label> 
+          <input type=text" class="form-control" placeholder="name" id="name" name="name" required/>
+      </div> 
+       <div class="form-group"> 
+        <label for="title" class=" sr-only form-control-label"> Title:   </label> 
+          <input type=text" class="form-control" placeholder="title" id="title" name="title" required/>
+      </div> 
+       <div class="form-group"> 
+        <label for="email" class=" sr-only form-control-label"> Email: </label> 
+          <input type=text" class="form-control" placeholder="email" id="email" name="email" required/>
+      </div> 
+      <div class="form-group"> 
+        <label for="message" class=" sr-only form-control-label"> Message: </label> 
+        <textarea class="form-control" rows="6" name="message" placeholder="message" required></textarea>
+      </div>
+      <div class="form-group"> 
+        <button type="submit" class="mt-3 btn btn-lg btn-success"> Submit </button> 
+      </div>
+   </form>
+ </section> 
+ <section class="row"> 
+    <div class="col-sm-12"> 
+       <h1 class="display-2 mb-4"> Comments </h1> 
+          <div class="container-fluid">
+      
+      <% if(comments !== null) { %>  
+       <% comments.forEach(function(item){ %> 
+
+            <div class="row mb-2" style=" padding-top:5px; background-color: lightgray;""> 
+           
+           
+        
+
+                <div class="col-sm-12 text-left" > 
+
+                       <p class="postedon">   <img class="commentimage mr-2" src="../images/comment.png" style="width:10px; height:auto;"> 
+  <a class="commentuser" href="#">  <%= item.name + ' ' %> </a> said at <%= ' ' +(item.date.getHours() > 12 ? item.date.getHours() - 12 : item.date.getHours()) + ':' + 
+  (item.date.getMinutes() < 10 ? '0' + item.date.getMinutes() : item.date.getMinutes()) + ' ' +(item.date.getHours() < 12 ? 'am' : 'pm') + ' on ' + (item.date.getMonth() + 1)  + ' ' + 
+        (item.date.getDay() + 1) + ', ' + item.date.getFullYear() %> </p> 
+               <div class="col-sm-8">
+                   <p class="commentcontent"> <%= item.message %> </p> 
+                </div> <!-- col class --> 
+          
+
+          
+
+              </div> <!-- div nested row--> 
+             </div> <!-- row div --> 
+          <% }) %>
+        <% } %>  
+        <% if(comments === null){  %> 
+           <p> that is something this is an error </p> 
+        <% } %> 
+     </div>  <!-- container --> 
+       <p class="comments section"> </p> 
+    </div> 
+ </section> <!-- comment placement section --> 
+</body>
+<html> 
